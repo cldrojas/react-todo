@@ -5,6 +5,7 @@
 -   Descubre las Ventajas de manejar el estado con React Hooks
 -   Dispara eventos para reaccionar a las interacciones de los usuarios
 -   Comprende la diferencia entre componentes, elementos y etiquetas
+    [Enlace al curso en Platzi]('https://platzi.com/react)
 
 ### Funciones del proyecto
 
