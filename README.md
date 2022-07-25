@@ -1,25 +1,15 @@
-# Vite + React + TypeScript + Eslint + Prettier
+# Curso de Introducción a React.js
 
-#### Create a new project with Vite, React, TypeScript, Eslint and Prettier with no configurations
+### Contenidos de este curso
 
-## Usage
+-   Descubre las Ventajas de manejar el estado con React Hooks
+-   Dispara eventos para reaccionar a las interacciones de los usuarios
+-   Comprende la diferencia entre componentes, elementos y etiquetas
 
-### Clone Template
+### Funciones del proyecto
 
-```
-git clone https://github.com/cldrojas/react-ts-base.git
-```
-
-### Install Packages
-
-```
-yarn install
-```
-
-### Start dev server
-
-```
-yarn dev
-```
-
-> This template is forked from [here](Danshert/vite-react-ts-eslint-prettier.git)
+-   Renderiza una lista de Tareas por hacer
+-   Cuenta las tareas pendientes y las separa de las tareas completadas
+-   Agregar tareas a la lista
+-   Marcar tareas como completadas
+-   Eliminar tareas de la lista
