@@ -1,14 +1,6 @@
 import './List.css';
 
-export function List({
-	children,
-	title,
-	number,
-}: {
-	children: any;
-	title: string;
-	number: number;
-}) {
+export function List({ children, title, number }: List) {
 	return (
 		<section className="TodoList">
 			<h4>
