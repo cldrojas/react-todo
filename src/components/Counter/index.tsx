@@ -1,9 +1,11 @@
+import { useTodos } from '~/hooks/useTodos';
 import './Counter.css';
 
-export function Counter({ total, completed }: Counter) {
+export function Counter() {
+	const { totalTodos, totalCompleted } = useTodos();
 	return (
 		<h4>
-			You&apos;ve completed {completed} of {total} TODOs
+			`You&apos;ve completed ${totalCompleted} of ${totalTodos} TODOs`
 		</h4>
 	);
 }
