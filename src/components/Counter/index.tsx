@@ -6,7 +6,7 @@ export function Counter() {
 	return (
 		<h4>
 			{totalTodos > 0 &&
-				`You&apos;ve completed ${totalCompleted} of ${totalTodos} TODOs`}
+				`You've completed ${totalCompleted} of ${totalTodos} TODOs`}
 		</h4>
 	);
 }
