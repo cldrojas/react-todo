@@ -3,15 +3,14 @@ import { useLocalSorage } from './useLocalStorage';
 
 const TodoContext = React.createContext<any>({});
 
-export function TodoProvider(children: any) {
-	const [searchTerm, setSearchTerm] = React.useState<string>('');
-
+const TodoProvider = ({ children }: any) => {
+	const [searchTerm, setSearchTerm] = React.useState('');
 	const {
+		error,
+		loading,
 		item: todos,
 		saveItem: saveTodos,
-		loading,
-		error,
-	} = useLocalSorage('TODOS_V1', Array<Todo>());
+	} = useLocalSorage('TODOS_V1', Array<Todo[]>);
 
 	let filteredTodos = todos.filter((todo: { text: string }) =>
 		todo.text.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -64,9 +63,9 @@ export function TodoProvider(children: any) {
 			{children}
 		</TodoContext.Provider>
 	);
-}
+};
 
-export function useTodos() {
+function useTodos() {
 	const {
 		error,
 		loading,
@@ -94,3 +93,5 @@ export function useTodos() {
 		removeTodo,
 	};
 }
+
+export { TodoProvider, TodoContext, useTodos };

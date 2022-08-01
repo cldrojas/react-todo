@@ -25,7 +25,7 @@ export function useLocalSorage(itemName: string, initialValue: any) {
 			} catch (error: any) {
 				setError(error);
 			}
-		}, 2000);
+		}, 1000);
 	});
 
 	const saveItem = (newItem: any) => {

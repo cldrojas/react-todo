@@ -5,7 +5,7 @@ export function Counter() {
 	const { totalTodos, totalCompleted } = useTodos();
 	return (
 		<h4>
-			`You&apos;ve completed ${totalCompleted} of ${totalTodos} TODOs`
+			You&apos;ve completed {totalCompleted} of {totalTodos} TODOs
 		</h4>
 	);
 }

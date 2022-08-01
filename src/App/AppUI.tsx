@@ -1,3 +1,5 @@
+import './App.css';
+
 import { Header } from '~/components/Header';
 import { Counter } from '~/components/Counter';
 import { SearchBar } from '~/components/SearchBar';
@@ -5,8 +7,6 @@ import { List } from '~/components/List';
 import { ListItem } from '~/components/ListItem';
 import { AddButton } from '~/components/AddButton';
 import { useTodos } from '~/hooks/useTodos';
-
-import './App.css';
 
 function AppUI() {
 	const {
