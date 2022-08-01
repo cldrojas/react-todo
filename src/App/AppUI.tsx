@@ -27,8 +27,8 @@ function AppUI() {
 			{error && <p>Hubo un error...</p>}
 			{loading && <p>Cargando...</p>}
 			{!loading && !filteredTodos.length && <h3>Add your first Todo</h3>}
-			{!loading && filteredTodos.length && (
-				<>
+			{!loading && filteredTodos.length > 0 && (
+				<div>
 					<List title="Pending" number={remainingTodos.length}>
 						{remainingTodos.map((todo: Todo) => (
 							<ListItem
@@ -51,7 +51,7 @@ function AppUI() {
 							/>
 						))}
 					</List>
-				</>
+				</div>
 			)}
 			<AddButton
 				callBack={() => alert('TODO: Open modal to add todos')}
