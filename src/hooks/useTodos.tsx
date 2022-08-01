@@ -5,6 +5,7 @@ const TodoContext = React.createContext<any>({});
 
 const TodoProvider = ({ children }: any) => {
 	const [searchTerm, setSearchTerm] = React.useState('');
+	const [isModalOpen, setOpenModal] = React.useState(false);
 	const {
 		error,
 		loading,
@@ -44,6 +45,10 @@ const TodoProvider = ({ children }: any) => {
 		saveTodos(todos.filter((todo: Todo) => todo.id !== id));
 	};
 
+	const toggleModal = () => {
+		setOpenModal(!isModalOpen);
+	};
+
 	return (
 		<TodoContext.Provider
 			value={{
@@ -55,9 +60,11 @@ const TodoProvider = ({ children }: any) => {
 				completedTodos,
 				filteredTodos,
 				searchTerm,
+				isModalOpen,
 				setSearchTerm,
 				toggleTodo,
 				removeTodo,
+				toggleModal,
 			}}
 		>
 			{children}
@@ -78,6 +85,8 @@ function useTodos() {
 		setSearchTerm,
 		toggleTodo,
 		removeTodo,
+		toggleModal,
+		isModalOpen,
 	} = React.useContext(TodoContext);
 	return {
 		error,
@@ -91,6 +100,8 @@ function useTodos() {
 		setSearchTerm,
 		toggleTodo,
 		removeTodo,
+		toggleModal,
+		isModalOpen,
 	};
 }
 

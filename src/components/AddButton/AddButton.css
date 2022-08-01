@@ -1,10 +1,10 @@
 .AddButton {
-  border-radius: 0.5em;
-  border: none;
-  padding: 1em 0;
-  color: #00d8ff;
-  background-color: #3c3c3c;
-  cursor: pointer;
-  margin-top: 8px;
-  margin-bottom: 16px;
+	border-radius: 0.5em;
+	border: none;
+	padding: 1em 0;
+	color: #00d8ff;
+	background-color: #3c3c3c;
+	cursor: pointer;
+	margin-top: 8px;
+	margin-bottom: 16px;
 }

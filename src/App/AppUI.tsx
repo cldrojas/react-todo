@@ -6,6 +6,7 @@ import { SearchBar } from '~/components/SearchBar';
 import { List } from '~/components/List';
 import { ListItem } from '~/components/ListItem';
 import { AddButton } from '~/components/AddButton';
+import { Modal } from '~/components/Modal';
 import { useTodos } from '~/hooks/useTodos';
 
 function AppUI() {
@@ -15,7 +16,9 @@ function AppUI() {
 		filteredTodos,
 		remainingTodos,
 		completedTodos,
+		isModalOpen,
 		toggleTodo,
+		toggleModal,
 		removeTodo,
 	} = useTodos();
 
@@ -53,9 +56,14 @@ function AppUI() {
 					</List>
 				</div>
 			)}
-			<AddButton
-				callBack={() => alert('TODO: Open modal to add todos')}
-			/>
+			{isModalOpen && (
+				<Modal>
+					<div>
+						<h1>{`There'll be a form`}</h1>
+					</div>
+				</Modal>
+			)}
+			<AddButton callBack={toggleModal} />
 		</div>
 	);
 }
