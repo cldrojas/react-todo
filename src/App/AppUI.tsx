@@ -9,6 +9,7 @@ import { AddButton } from '~/components/AddButton';
 import { Modal } from '~/components/Modal';
 import { useTodos } from '~/hooks/useTodos';
 import { Form } from '~/components/Form';
+import { LoadingTodos } from '~/components/LoadingTodos';
 
 function AppUI() {
 	const {
@@ -29,7 +30,7 @@ function AppUI() {
 			<Counter />
 			<SearchBar />
 			{error && <p>Hubo un error...</p>}
-			{loading && <p>Cargando...</p>}
+			{loading && <LoadingTodos />}
 			{!loading && !filteredTodos.length && <h3>Add your first Todo</h3>}
 			{!loading && filteredTodos.length > 0 && (
 				<div>
