@@ -1,10 +1,22 @@
 .AddButton {
-  border-radius: 0.5em;
-  border: none;
-  padding: 1em 0;
-  color: #00d8ff;
-  background-color: #3c3c3c;
-  cursor: pointer;
-  margin-top: 8px;
-  margin-bottom: 16px;
+	border-radius: 100%;
+	width: 4.5rem;
+	height: 4.5rem;
+	border: none;
+	font-weight: bolder;
+	font-size: 52px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px, 0 6px 6px rgba(0, 0, 0, 0.23);
+	color: #00d8ff;
+	background-color: #3c3c3c;
+	cursor: default;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 2.5rem;
+	right: 2.5rem;
+	outline: none;
+}
+.AddButton:hover {
+	cursor: pointer;
 }
