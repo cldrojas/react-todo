@@ -8,6 +8,7 @@ import { ListItem } from '~/components/ListItem';
 import { AddButton } from '~/components/AddButton';
 import { Modal } from '~/components/Modal';
 import { useTodos } from '~/hooks/useTodos';
+import { Form } from '~/components/Form';
 
 function AppUI() {
 	const {
@@ -58,12 +59,10 @@ function AppUI() {
 			)}
 			{isModalOpen && (
 				<Modal>
-					<div>
-						<h1>{`There'll be a form`}</h1>
-					</div>
+					<Form />
 				</Modal>
 			)}
-			<AddButton callBack={toggleModal} />
+			<AddButton onClick={toggleModal} />
 		</div>
 	);
 }

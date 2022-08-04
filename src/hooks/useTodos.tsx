@@ -49,6 +49,18 @@ const TodoProvider = ({ children }: any) => {
 		setOpenModal(!isModalOpen);
 	};
 
+	const addTodo = (text: string) => {
+		const newTodo: Todo = {
+			id: todos.length + 1,
+			done: false,
+			text: text,
+		};
+
+		todos.push(newTodo);
+		saveTodos(todos);
+		toggleModal();
+	};
+
 	return (
 		<TodoContext.Provider
 			value={{
@@ -64,6 +76,7 @@ const TodoProvider = ({ children }: any) => {
 				setSearchTerm,
 				toggleTodo,
 				removeTodo,
+				addTodo,
 				toggleModal,
 			}}
 		>
@@ -87,6 +100,7 @@ function useTodos() {
 		removeTodo,
 		toggleModal,
 		isModalOpen,
+		addTodo,
 	} = React.useContext(TodoContext);
 	return {
 		error,
@@ -102,6 +116,7 @@ function useTodos() {
 		removeTodo,
 		toggleModal,
 		isModalOpen,
+		addTodo,
 	};
 }
 
