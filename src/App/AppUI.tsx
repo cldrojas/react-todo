@@ -10,11 +10,13 @@ import { Modal } from '~/components/Modal';
 import { useTodos } from '~/hooks/useTodos';
 import { Form } from '~/components/Form';
 import { LoadingTodos } from '~/components/LoadingTodos';
+import { EmptyState } from '~/components/EmptyState';
 
 function AppUI() {
 	const {
 		loading,
 		error,
+		totalTodos,
 		filteredTodos,
 		remainingTodos,
 		completedTodos,
@@ -31,7 +33,10 @@ function AppUI() {
 			<SearchBar />
 			{error && <p>Hubo un error...</p>}
 			{loading && <LoadingTodos />}
-			{!loading && !filteredTodos.length && <h3>Add your first Todo</h3>}
+			{!loading && !totalTodos.length && <EmptyState type="list" />}
+			{!loading && totalTodos.length > 0 && !filteredTodos.length && (
+				<EmptyState type="search" />
+			)}
 			{!loading && filteredTodos.length > 0 && (
 				<div>
 					<List title="Pending" number={remainingTodos.length}>
