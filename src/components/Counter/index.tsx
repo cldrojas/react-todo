@@ -6,8 +6,8 @@ export function Counter() {
 
 	return (
 		<h4 className="CounterText">
-			{totalTodos > 0 &&
-				`You've completed ${totalCompleted} of ${totalTodos} TODOs`}
+			{totalTodos.length > 0 &&
+				`You've completed ${totalCompleted} of ${totalTodos.length} TODOs`}
 		</h4>
 	);
 }

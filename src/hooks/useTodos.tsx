@@ -19,7 +19,7 @@ const TodoProvider = ({ children }: any) => {
 
 	if (!searchTerm.length) filteredTodos = todos;
 
-	const totalTodos: number = todos.length;
+	const totalTodos: number = todos;
 	const totalCompleted: number = todos.filter(
 		(todo: Todo) => todo.done,
 	).length;
