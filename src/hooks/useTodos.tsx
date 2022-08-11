@@ -11,7 +11,7 @@ const TodoProvider = ({ children }: any) => {
 		loading,
 		item: todos,
 		saveItem: saveTodos,
-	} = useLocalSorage('TODOS_V1', Array<Todo[]>);
+	} = useLocalSorage('TODOS_V1', Array<Todo[]>());
 
 	let filteredTodos = todos.filter((todo: { text: string }) =>
 		todo.text.toLowerCase().includes(searchTerm.toLowerCase()),
