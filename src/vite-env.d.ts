@@ -6,8 +6,18 @@ interface Todo {
 }
 
 interface Counter {
-	total: number;
-	completed: number;
+	totalTodos: number;
+	totalCompleted: number;
+}
+
+interface SearchBar {
+	searchTerm: string;
+	setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+}
+
+interface Form {
+	toggleModal: () => void;
+	addTodo: (text: string) => void;
 }
 
 interface List {
@@ -23,7 +33,7 @@ interface ListItem {
 	removeTodo: () => void;
 }
 
-interface searchItem {
-	searchTerm: string;
-	setSearchTerm: (e: string) => void;
+interface AddButton {
+	onClick: () => void;
+	isModalOpen: boolean;
 }

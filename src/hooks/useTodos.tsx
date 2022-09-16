@@ -1,9 +1,7 @@
 import React from 'react';
 import { useLocalSorage } from './useLocalStorage';
 
-const TodoContext = React.createContext<any>({});
-
-const TodoProvider = ({ children }: any) => {
+export function useTodos() {
 	const [searchTerm, setSearchTerm] = React.useState('');
 	const [isModalOpen, setOpenModal] = React.useState(false);
 	const {
@@ -19,7 +17,7 @@ const TodoProvider = ({ children }: any) => {
 
 	if (!searchTerm.length) filteredTodos = todos;
 
-	const totalTodos: number = todos;
+	const totalTodos: number = todos.length;
 	const totalCompleted: number = todos.filter(
 		(todo: Todo) => todo.done,
 	).length;
@@ -61,47 +59,6 @@ const TodoProvider = ({ children }: any) => {
 		toggleModal();
 	};
 
-	return (
-		<TodoContext.Provider
-			value={{
-				error,
-				loading,
-				totalTodos,
-				totalCompleted,
-				remainingTodos,
-				completedTodos,
-				filteredTodos,
-				searchTerm,
-				isModalOpen,
-				setSearchTerm,
-				toggleTodo,
-				removeTodo,
-				addTodo,
-				toggleModal,
-			}}
-		>
-			{children}
-		</TodoContext.Provider>
-	);
-};
-
-function useTodos() {
-	const {
-		error,
-		loading,
-		totalTodos,
-		totalCompleted,
-		remainingTodos,
-		completedTodos,
-		filteredTodos,
-		searchTerm,
-		setSearchTerm,
-		toggleTodo,
-		removeTodo,
-		toggleModal,
-		isModalOpen,
-		addTodo,
-	} = React.useContext(TodoContext);
 	return {
 		error,
 		loading,
@@ -111,13 +68,11 @@ function useTodos() {
 		completedTodos,
 		filteredTodos,
 		searchTerm,
+		isModalOpen,
 		setSearchTerm,
 		toggleTodo,
 		removeTodo,
-		toggleModal,
-		isModalOpen,
 		addTodo,
+		toggleModal,
 	};
 }
-
-export { TodoProvider, TodoContext, useTodos };

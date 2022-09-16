@@ -1,13 +1,11 @@
 import React, { FormEvent } from 'react';
 import Swal from 'sweetalert2';
 
-import { useTodos } from '~/hooks/useTodos';
 import { Label } from './Label';
 
 import './Form.css';
 
-function Form() {
-	const { toggleModal, addTodo } = useTodos();
+export function Form({ toggleModal, addTodo }: Form) {
 	const [text, setText] = React.useState('');
 
 	const handleSubmit = (e: FormEvent) => {
@@ -34,11 +32,11 @@ function Form() {
 				onChange={(e) => setText(e.target.value)}
 			/>
 			<div className="actions">
-				<button onClick={toggleModal}>Cancel</button>
+				<button type="button" onClick={toggleModal}>
+					Cancel
+				</button>
 				<button type="submit">Add todo</button>
 			</div>
 		</form>
 	);
 }
-
-export { Form };

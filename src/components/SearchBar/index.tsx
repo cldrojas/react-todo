@@ -1,11 +1,8 @@
 import React from 'react';
 import './SearchBar.css';
 import searchIcon from '~/assets/search.svg';
-import { useTodos } from '~/hooks/useTodos';
 
-export function SearchBar() {
-	const { searchTerm, setSearchTerm } = useTodos();
-
+export function SearchBar({ searchTerm, setSearchTerm }: SearchBar) {
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchTerm(e.target.value);
 	};
