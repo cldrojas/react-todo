@@ -15,3 +15,18 @@ Puedes tomar el curso [aquí](https://platzi.com/cursos/react/)
 -   Agregar tareas a la lista
 -   Marcar tareas como completadas
 -   Eliminar tareas de la lista
+
+# Curso de patrones de render y composición
+
+### Contenidos de este curso
+
+- Escribe código saludable con composición de componentes en React
+- Conoce principios de React como la colocación del estado y código aburrido
+- Compara los React Hooks con otros patrones como Render Props y HOCs
+
+Puedes tomal el curso [aquí](https://platzi.com/cursos/react-patrones-render/)
+
+### Actualizaciones realizadas al proyecto
+
+- Mejora la composición de componentes existente
+- Utiliza render props para renderizar componentes
