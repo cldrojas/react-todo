@@ -2,7 +2,7 @@ import './List.css';
 
 export function List({ children, title, number }: List) {
 	return (
-		<section className="TodoList">
+		<section className="List">
 			<h4>
 				{title} - {number}
 			</h4>
