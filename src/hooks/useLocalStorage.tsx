@@ -3,6 +3,7 @@ import React from 'react';
 export function useLocalSorage(itemName: string, initialValue: any) {
 	const [item, setItem] = React.useState(initialValue);
 	const [loading, setLoading] = React.useState<boolean>(true);
+	const [sync, setSync] = React.useState(true);
 	const [error, setError] = React.useState<string>('');
 
 	React.useEffect(() => {
@@ -22,11 +23,12 @@ export function useLocalSorage(itemName: string, initialValue: any) {
 				}
 				setItem(parsedItem);
 				setLoading(false);
+				setSync(true);
 			} catch (error: any) {
 				setError(error);
 			}
 		}, 1500);
-	});
+	}, [sync]);
 
 	const saveItem = (newItem: any) => {
 		try {
@@ -38,5 +40,10 @@ export function useLocalSorage(itemName: string, initialValue: any) {
 		}
 	};
 
-	return { item, saveItem, loading, error };
+	const syncItem = () => {
+		setLoading(true);
+		setSync(false);
+	};
+
+	return { item, saveItem, loading, error, syncItem };
 }

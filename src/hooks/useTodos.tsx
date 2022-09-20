@@ -8,6 +8,7 @@ export function useTodos() {
 		error,
 		loading,
 		item: todos,
+		syncItem: syncTodos,
 		saveItem: saveTodos,
 	} = useLocalSorage('TODOS_V1', Array<Todo[]>());
 
@@ -74,5 +75,6 @@ export function useTodos() {
 		removeTodo,
 		addTodo,
 		toggleModal,
+		syncTodos,
 	};
 }

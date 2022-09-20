@@ -12,6 +12,7 @@ import { Modal } from '~/components/Modal';
 import { SearchBar } from '~/components/SearchBar';
 import { TodoList } from '~/components/TodoList';
 import { ErrorTodos } from '~/components/ErrorTodos';
+import { ChangeAlertWithStorageListener } from '~/components/ChangeAlert';
 
 export function App() {
 	const {
@@ -28,6 +29,7 @@ export function App() {
 		toggleModal,
 		removeTodo,
 		setSearchTerm,
+		syncTodos,
 	} = useTodos();
 
 	return (
@@ -65,12 +67,15 @@ export function App() {
 				)}
 			/>
 
+			<AddButton onClick={toggleModal} isModalOpen={isModalOpen} />
+
 			{isModalOpen && (
 				<Modal>
 					<Form toggleModal={toggleModal} addTodo={addTodo} />
 				</Modal>
 			)}
-			<AddButton onClick={toggleModal} isModalOpen={isModalOpen} />
+
+			<ChangeAlertWithStorageListener syncTodos={syncTodos} />
 		</div>
 	);
 }
