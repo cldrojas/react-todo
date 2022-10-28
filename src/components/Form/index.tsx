@@ -8,7 +8,7 @@ import './Form.css';
 export function Form({ toggleModal, addTodo }: Form) {
 	const [text, setText] = React.useState('');
 
-	const inputRef = useRef<HTMLInputElement>(null);
+	const inputRef = useRef<HTMLTextAreaElement>(null);
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
@@ -30,7 +30,7 @@ export function Form({ toggleModal, addTodo }: Form) {
 	return (
 		<form onSubmit={(e) => handleSubmit(e)} className={'TodoForm'}>
 			<Label>Create a new Todo</Label>
-			<input
+			<textarea
 				ref={inputRef}
 				name="todoInput"
 				id="todoInput"
