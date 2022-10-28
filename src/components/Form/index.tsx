@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 import Swal from 'sweetalert2';
 
 import { Label } from './Label';
@@ -8,7 +8,15 @@ import './Form.css';
 export function Form({ toggleModal, addTodo }: Form) {
 	const [text, setText] = React.useState('');
 
-	const handleSubmit = (e: FormEvent) => {
+	const inputRef = React.useRef<HTMLTextAreaElement>(null);
+
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		setText(e.target.value);
+		if (e.code === 'Escape') toggleModal();
+		if (e.code === 'Enter' && !e.shiftKey) handleSubmit(e);
+	};
+
+	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		if (!text.trim())
 			Swal.fire({
@@ -21,15 +29,19 @@ export function Form({ toggleModal, addTodo }: Form) {
 		if (text.trim()) addTodo(text);
 	};
 
+	React.useEffect(() => {
+		inputRef.current?.focus();
+	}, []);
+
 	return (
 		<form onSubmit={(e) => handleSubmit(e)} className={'TodoForm'}>
 			<Label>Create a new Todo</Label>
 			<textarea
+				ref={inputRef}
 				name="todoInput"
 				id="todoInput"
-				autoCapitalize=""
 				placeholder="Write Something"
-				onChange={(e) => setText(e.target.value)}
+				onKeyDown={handleKeyDown}
 			/>
 			<div className="actions">
 				<button type="button" onClick={toggleModal}>

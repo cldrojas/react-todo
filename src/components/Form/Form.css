@@ -13,12 +13,12 @@
 	font-size: 14px;
 	font-weight: 600;
 	padding: 10px;
-	min-height: 120px;
+	padding: 1em;
 	outline: none;
 }
 .TodoForm .actions {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(2, 1fr);
 	gap: 20px;
 }
 .actions > button {

@@ -17,7 +17,7 @@ export function withStorageListener(WrappedComponent: any) {
 			props.syncTodos();
 			setShow(false);
 		};
-
+		// some test comment
 		return <WrappedComponent show={show} toggleShow={toggleShow} />;
 	};
 }
