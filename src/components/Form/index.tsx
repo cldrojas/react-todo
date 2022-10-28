@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useEffect, useRef } from 'react';
 import Swal from 'sweetalert2';
 
 import { Label } from './Label';
@@ -7,6 +7,8 @@ import './Form.css';
 
 export function Form({ toggleModal, addTodo }: Form) {
 	const [text, setText] = React.useState('');
+
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
@@ -21,13 +23,17 @@ export function Form({ toggleModal, addTodo }: Form) {
 		if (text.trim()) addTodo(text);
 	};
 
+	useEffect(() => {
+		inputRef.current?.focus();
+	}, []);
+
 	return (
 		<form onSubmit={(e) => handleSubmit(e)} className={'TodoForm'}>
 			<Label>Create a new Todo</Label>
-			<textarea
+			<input
+				ref={inputRef}
 				name="todoInput"
 				id="todoInput"
-				autoCapitalize=""
 				placeholder="Write Something"
 				onChange={(e) => setText(e.target.value)}
 			/>
