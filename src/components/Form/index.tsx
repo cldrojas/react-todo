@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useRef } from 'react';
+import React from 'react';
 import Swal from 'sweetalert2';
 
 import { Label } from './Label';
@@ -8,9 +8,15 @@ import './Form.css';
 export function Form({ toggleModal, addTodo }: Form) {
 	const [text, setText] = React.useState('');
 
-	const inputRef = useRef<HTMLTextAreaElement>(null);
+	const inputRef = React.useRef<HTMLTextAreaElement>(null);
 
-	const handleSubmit = (e: FormEvent) => {
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		setText(e.target.value);
+		if (e.code === 'Escape') toggleModal();
+		if (e.code === 'Enter' && !e.shiftKey) handleSubmit(e);
+	};
+
+	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		if (!text.trim())
 			Swal.fire({
@@ -23,7 +29,7 @@ export function Form({ toggleModal, addTodo }: Form) {
 		if (text.trim()) addTodo(text);
 	};
 
-	useEffect(() => {
+	React.useEffect(() => {
 		inputRef.current?.focus();
 	}, []);
 
@@ -35,7 +41,7 @@ export function Form({ toggleModal, addTodo }: Form) {
 				name="todoInput"
 				id="todoInput"
 				placeholder="Write Something"
-				onChange={(e) => setText(e.target.value)}
+				onKeyDown={handleKeyDown}
 			/>
 			<div className="actions">
 				<button type="button" onClick={toggleModal}>
