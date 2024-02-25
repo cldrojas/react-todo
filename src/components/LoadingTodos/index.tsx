@@ -1,13 +1,13 @@
-import './LoadingTodos.css';
+import LoadingItem from './LoadingItem'
 
 const LoadingTodos = () => {
 	return (
-		<ul className="LoadingList">
-			<li className="LoadingTodo"></li>
-			<li className="LoadingTodo"></li>
-			<li className="LoadingTodo"></li>
+		<ul>
+			<LoadingItem />
+			<LoadingItem />
+			<LoadingItem />
 		</ul>
-	);
-};
+	)
+}
 
-export { LoadingTodos };
+export { LoadingTodos }
