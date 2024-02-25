@@ -24,6 +24,7 @@ interface List {
 	children: any
 	title: string
 	number: number
+	action?: () => void
 }
 
 interface ListItem {

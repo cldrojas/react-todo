@@ -39,6 +39,10 @@ export function useTodos() {
 		saveTodos(todos.filter((todo: Todo) => todo.id !== id))
 	}
 
+	const removeCompleted = () => {
+		saveTodos(todos.filter((todo: Todo) => !todo.done))
+	}
+
 	const toggleModal = () => {
 		setOpenModal(!isModalOpen)
 	}
@@ -73,6 +77,7 @@ export function useTodos() {
 		setSearchTerm,
 		toggleTodo,
 		removeTodo,
+		removeCompleted,
 		addTodo,
 		toggleModal,
 		syncTodos,
