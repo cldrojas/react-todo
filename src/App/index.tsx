@@ -1,7 +1,7 @@
 import './App.css'
 import { useTodos } from '~/hooks/useTodos'
 
-import { AddButton } from '~/components/AddButton'
+// import { AddButton } from '~/components/AddButton'
 import { Counter } from '~/components/Counter'
 import { EmptyState } from '~/components/EmptyState'
 import { Form } from '~/components/Form'
@@ -33,6 +33,7 @@ export function App() {
 		toggleTodo,
 		toggleModal,
 		removeTodo,
+		removeCompleted,
 		setSearchTerm,
 		syncTodos,
 	} = useTodos()
@@ -62,6 +63,7 @@ export function App() {
 				onLoading={() => <LoadingTodos />}
 				onEmptyTodos={() => <EmptyState type="list" />}
 				onEmptySearch={() => <EmptyState type="search" />}
+				removeCompleted={removeCompleted}
 				render={(todo: Todo) => (
 					<ListItem
 						key={todo.id}

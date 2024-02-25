@@ -1,5 +1,5 @@
-import { List } from '../List';
-import './TodoList.css';
+import { List } from '../List'
+import './TodoList.css'
 
 export const TodoList = (props: any) => {
 	const {
@@ -13,29 +13,32 @@ export const TodoList = (props: any) => {
 		onLoading,
 		onEmptyTodos,
 		onEmptySearch,
+		removeCompleted,
 		render,
-	} = props;
+	} = props
 
 	return (
 		<section className="TodoList">
 			{error && onError()}
 			{loading && onLoading()}
 			{!loading && !totalTodos && onEmptyTodos()}
-			{!loading &&
-				!filteredTodos.length &&
-				totalTodos > 0 &&
-				onEmptySearch()}
+			{!loading && !filteredTodos.length && totalTodos > 0 && onEmptySearch()}
 
 			{!loading && filteredTodos.length > 0 && (
 				<>
-					<List title="Pending" number={remainingTodos.length}>
+					<List
+						title="Pending"
+						number={remainingTodos.length}>
 						{remainingTodos.map(render)}
 					</List>
-					<List title="Completed" number={completedTodos.length}>
+					<List
+						title="Completed"
+						number={completedTodos.length}
+						action={removeCompleted}>
 						{completedTodos.map(render)}
 					</List>
 				</>
 			)}
 		</section>
-	);
-};
+	)
+}
