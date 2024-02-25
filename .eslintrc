@@ -28,6 +28,7 @@
 	"rules": {
 		"no-var": "warn",
 		"no-console": "warn",
+		"no-duplicate-imports": "warn",
 		"@typescript-eslint/no-explicit-any": "off",
 		"@typescript-eslint/no-non-null-assertion": "off",
 		"@typescript-eslint/no-unused-vars": [
@@ -41,7 +42,6 @@
 
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
-
 		"prettier/prettier": [
 			"warn",
 			{
@@ -52,7 +52,7 @@
 	},
 	"settings": {
 		"react": {
-			"version": "detect"
+			"version": "18"
 		}
 	}
 }
