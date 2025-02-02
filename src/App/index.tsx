@@ -1,7 +1,6 @@
 import './App.css'
 import { useTodos } from '~/hooks/useTodos'
-
-// import { AddButton } from '~/components/AddButton'
+ import { AddButton } from '~/components/AddButton'
 import { Counter } from '~/components/Counter'
 import { EmptyState } from '~/components/EmptyState'
 import { Form } from '~/components/Form'
@@ -75,10 +74,10 @@ export function App() {
 				)}
 			/>
 
-			{/* <AddButton
+			<AddButton
 				onClick={toggleModal}
 				isModalOpen={isModalOpen}
-			/> */}
+			/>
 
 			<SearchButton onClick={openSearchBar} />
 
