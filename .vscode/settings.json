@@ -1,21 +1,16 @@
 {
-	"eslint.probe": [
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact"
-	],
+	"eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 	"css.lint.unknownAtRules": "ignore",
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 	"editor.formatOnPaste": false,
 	// Runs Prettier, then ESLint
-	"editor.codeActionsOnSave": [
-		"source.formatDocument",
-		"source.fixAll.eslint"
-	],
+	"editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
 	"css.customData": ["./css-data.json"],
 	"yaml.schemas": {
 		"https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/cldrojas/dev/react-todo/.github/workflows/deploy.yaml"
+	},
+	"[xml]": {
+		"editor.defaultFormatter": "redhat.vscode-xml"
 	}
 }

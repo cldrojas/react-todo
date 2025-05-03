@@ -37,7 +37,7 @@ export function Form({ toggleModal, addTodo }: Form) {
 			className="flex flex-col max-h-[860px] rounded-[0.7em] mt-0 px-[2em] pb-[10em] p-[20px] w-full bg-[#2b2b2b]">
 			<Label>Create a new Todo</Label>
 			<textarea
-				className="rounded-[10px] font-semibold p-[1em] outline-none text-[#2b3c2b]"
+				className="rounded-xl font-semibold p-[1em] outline-none text-[#2b3c2b]"
 				ref={inputRef}
 				name="todoInput"
 				id="todoInput"
@@ -45,10 +45,9 @@ export function Form({ toggleModal, addTodo }: Form) {
 				onKeyUp={handleKeyUp}
 			/>
 
-			<div className="grid grid-cols-[repeat(2,1fr)] gap-[20px]">
+			<div className="grid grid-cols-[repeat(2,1fr)] gap-5">
 				<button
-					className="rounded-[0.5em] border-none p-[1rem 0] text-[#00d8ff] 
-				cursor-pointer rounded-lg mt-[16px]"
+					className="border-none py-4 cursor-pointer rounded-md mt-[16px]"
 					type="button"
 					onClick={toggleModal}>
 					Cancel

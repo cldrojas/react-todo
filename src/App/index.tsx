@@ -1,20 +1,14 @@
 import './App.css'
 import { useTodos } from '~/hooks/useTodos'
- import { AddButton } from '~/components/AddButton'
 import { Counter } from '~/components/Counter'
 import { EmptyState } from '~/components/EmptyState'
-import { Form } from '~/components/Form'
 import { Header } from '~/components/Header'
 import { ListItem } from '~/components/ListItem'
 import { LoadingTodos } from '~/components/LoadingTodos'
-import { Modal } from '~/components/Modal'
-import { SearchBar } from '~/components/SearchBar'
 import { TodoList } from '~/components/TodoList'
 import { ErrorTodos } from '~/components/ErrorTodos'
 import { ChangeAlertWithStorageListener } from '~/components/ChangeAlert'
 import NewTodoBar from '~/components/NewTodoBar'
-import { SearchButton } from '~/components/SearchButton'
-import { OpenableSearchBar } from '~/components/OpenableSearchBar'
 
 export function App() {
 	const {
@@ -24,16 +18,10 @@ export function App() {
 		filteredTodos,
 		remainingTodos,
 		completedTodos,
-		isModalOpen,
-		isSearchOpen,
-		searchTerm,
-		openSearchBar,
 		addTodo,
 		toggleTodo,
-		toggleModal,
 		removeTodo,
 		removeCompleted,
-		setSearchTerm,
 		syncTodos,
 	} = useTodos()
 
@@ -44,10 +32,7 @@ export function App() {
 					totalTodos={totalTodos}
 					totalCompleted={completedTodos.length}
 				/>
-				<SearchBar
-					searchTerm={searchTerm}
-					setSearchTerm={setSearchTerm}
-				/>
+
 				<NewTodoBar addTodo={addTodo} />
 			</Header>
 
@@ -74,26 +59,6 @@ export function App() {
 				)}
 			/>
 
-			<AddButton
-				onClick={toggleModal}
-				isModalOpen={isModalOpen}
-			/>
-
-			<SearchButton onClick={openSearchBar} />
-
-			{isModalOpen && (
-				<Modal>
-					<Form
-						toggleModal={toggleModal}
-						addTodo={addTodo}
-					/>
-				</Modal>
-			)}
-			<OpenableSearchBar
-				searchTerm={searchTerm}
-				setSearchTerm={setSearchTerm}
-				isOpen={isSearchOpen}
-			/>
 			<ChangeAlertWithStorageListener syncTodos={syncTodos} />
 		</div>
 	)

@@ -17,12 +17,7 @@ export function OpenableSearchBar({ searchTerm, setSearchTerm, isOpen }: Openabl
 				/>
 			</label>
 			<input
-				// font-size: 1em;
-				// font-family: inherit;
-				// font-weight: inherit;
-				// outline: none;
-
-				className="flex rounded-lg border-none px-2 py-10 text-md outline-none"
+				className="flex rounded-lg border-none px-2 py-20 text-md outline-none"
 				id="search"
 				type="text"
 				placeholder="Search task"

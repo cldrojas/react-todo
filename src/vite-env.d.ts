@@ -25,6 +25,7 @@ interface List {
 	title: string
 	number: number
 	action?: () => void
+	collapsible?: boolean
 }
 
 interface ListItem {

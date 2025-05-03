@@ -26,15 +26,26 @@ export const TodoList = (props: any) => {
 
 			{!loading && filteredTodos.length > 0 && (
 				<>
-					<List
-						title="Pending"
-						number={remainingTodos.length}>
-						{remainingTodos.map(render)}
-					</List>
+					{completedTodos.length > 0 && (
+						<button
+							className="text-xs bg-slate-600 rounded-3xl px-2 outline-none"
+							onClick={removeCompleted}>
+							Remove completed
+						</button>
+					)}
+					{remainingTodos.length > 0 ? (
+						<List
+							title="Pending"
+							number={remainingTodos.length}>
+							{remainingTodos.map(render)}
+						</List>
+					) : (
+						<span className="flex w-4/5 justify-start">you have completed all your tasks!</span>
+					)}
 					<List
 						title="Completed"
 						number={completedTodos.length}
-						action={removeCompleted}>
+						collapsible>
 						{completedTodos.map(render)}
 					</List>
 				</>

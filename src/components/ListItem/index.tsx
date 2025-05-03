@@ -9,10 +9,7 @@ export function ListItem({ text, done, toggleComplete, removeTodo }: ListItem) {
 				}`}>
 				✔
 			</span>
-			<span
-				className={`flex w-4/5 [justify-content:left] ${
-					done && 'line-through decoration-2'
-				}`}>
+			<span className={`flex w-4/5 justify-start ${done && 'line-through decoration-2'}`}>
 				{text}
 			</span>
 			<span
